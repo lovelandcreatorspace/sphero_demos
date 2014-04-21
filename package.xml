@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>sphero_demos</name>
+  <version>0.0.1</version>
+  <description>A handful of nifty ROS demos using the Sphero ROS node (http://mmwise.github.io/sphero_ros/).</description>
+
+  <author email="daniel@roadnarrows.com">daniel packard</author>
+  <maintainer email="daniel@roadnarrows.com">daniel packard</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <run_depend>std_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+</package>

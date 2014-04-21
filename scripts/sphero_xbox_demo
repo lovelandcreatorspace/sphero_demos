@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+import time
+
+import rospy
+
+from std_msgs.msg import *
+from geometry_msgs.msg import *
+from hid.msg import *
+
+def update_xbox_state(xbox, pub):
+  pub.publish(Twist(
+      Vector3(xbox.left_joy_x/32.0, xbox.left_joy_y/32.0, 0), Vector3(0,0,0)))
+
+if __name__=='__main__':
+  rospy.init_node('set_speed', anonymous=True)
+  color_pub = rospy.Publisher('/set_color', ColorRGBA)
+  cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist)
+
+  # subscribe to XBox 360 controller state
+  rospy.Subscriber("xbox_360/controller_360_state", Controller360State, update_xbox_state, cmd_vel_pub)
+  rospy.spin()
+

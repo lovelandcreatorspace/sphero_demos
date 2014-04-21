@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import time
+import rospy
+
+from std_msgs.msg import *
+from sphero_node.msg import *
+
+## Flash red on collision detection
+def collision_cb(xbox, pub):
+  controller_state_shared = xbox;
+  for i in range(0,200):
+      pub.publish(ColorRGBA((200-i)/200., 0,0,0))
+      time.sleep(0.002)
+
+if __name__=='__main__':
+  rospy.init_node('collision_demo', anonymous=True)
+  color_pub = rospy.Publisher('/set_color', ColorRGBA)
+
+  rospy.Subscriber("/collision", SpheroCollision, collision_cb, color_pub)
+  rospy.spin()
+
