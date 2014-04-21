@@ -1,6 +1,6 @@
 Sphero ROS demos
 =============
-Some very basic demos using the Sphero ROS node - let do some full RGB light painting next!
+Some very basic demos using the Sphero ROS node - let's do some full RGB light painting next!
 
 examples:
 ```bash
